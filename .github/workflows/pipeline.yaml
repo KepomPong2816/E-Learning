@@ -16,8 +16,9 @@ jobs:
     - name: Upload files to FTP server
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        ftp-server: ${{ secrets.FTP_SERVER }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./  # Folder to upload (current directory)
+        server: ${{ secrets.KEY_SERVER }}
+        username: ${{ secrets.KEY_USERNAME }}
+        password: ${{ secrets.KEY_PASSWORD }}
+        port: ${{ secrets.KEY_PORT }}
+        local-dir: ${{ secrets.KEY_DIR }}
         git-ftp-args: --auto-init
