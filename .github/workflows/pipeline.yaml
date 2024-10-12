@@ -16,11 +16,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+          extensions: mbstring, xml, curl, zip  # Tambahkan extension lain jika perlu
 
-      - name: Install Dependencies
+      - name: Install Composer Dependencies
         run: |
-          apt-get update && apt-get install -y git zip unzip lftp
-          curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           composer install --optimize-autoloader --no-dev
 
       - name: Optimize Laravel
