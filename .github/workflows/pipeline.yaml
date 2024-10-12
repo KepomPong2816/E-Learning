@@ -19,7 +19,9 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
+          echo "Current Directory: $(pwd)"
           cd <KEY_DIR>
+          echo "Current Directory: $(pwd)"
           composer install --optimize-autoloader --no-dev
 
       - name: Optimize Laravel
