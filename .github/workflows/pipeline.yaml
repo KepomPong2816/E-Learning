@@ -1,9 +1,8 @@
-name: Deploy Laravel Project
+name: Deploy My Project
 
 on:
   push:
-    branches:
-      - main  # Ganti dengan branch yang kamu inginkan
+    branches: [main]
 
 jobs:
   deploy:
@@ -20,10 +19,12 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
+          cd <KEY_DIR>
           composer install --optimize-autoloader --no-dev
 
       - name: Optimize Laravel
         run: |
+          cd <KEY_DIR>
           php artisan optimize
           php artisan config:cache
           php artisan route:cache
